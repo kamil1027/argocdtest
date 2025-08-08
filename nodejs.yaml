@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-deployment
-  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -16,7 +15,6 @@ spec:
       containers:
         - name: nodejs
           image: node:18
-          command: ["node"]
-          args: ["app.js"] # Ensure app.js exists in the image or mount it via a volume
+          command: ["/bin/bash", "-ce", "tail -f /dev/null"]
           ports:
             - containerPort: 8080
