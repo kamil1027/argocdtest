@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: nodejs
-          image: node:18 # Replace with your Node.js app image if needed
+          image: node:18
+          command: ["node"]
+          args: ["app.js"] # Ensure app.js exists in the image or mount it via a volume
           ports:
             - containerPort: 8080
-          # Add command/args/env as needed for your app
